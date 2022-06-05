@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRegressionLibary", "DBRegressionLibary\DBRegressionLibary.csproj", "{A833A70C-BF62-4947-AF99-A45FF8E52472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRegressionConsole", "DBRegressionConsole\DBRegressionConsole.csproj", "{9F6D1FC1-9027-4B6D-B444-285E3148B0E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A833A70C-BF62-4947-AF99-A45FF8E52472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A833A70C-BF62-4947-AF99-A45FF8E52472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A833A70C-BF62-4947-AF99-A45FF8E52472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A833A70C-BF62-4947-AF99-A45FF8E52472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F6D1FC1-9027-4B6D-B444-285E3148B0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6D1FC1-9027-4B6D-B444-285E3148B0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6D1FC1-9027-4B6D-B444-285E3148B0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6D1FC1-9027-4B6D-B444-285E3148B0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1AD865A-BFF1-44C0-A2F0-29B2ABCD3613}
+	EndGlobalSection
+EndGlobal

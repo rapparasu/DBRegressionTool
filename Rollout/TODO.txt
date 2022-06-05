@@ -1,0 +1,74 @@
+
+> check in DBRegression library packages into remote feature branch
+
+> create the below directory on lifeweb servers
+C:\LifeIT\Regression\
+
+> share the above filesystem as \\VSTLNWEB004\LifeIT\Regression and grant sg-syda-LifeITSupport, AAG-SYDA-LifeDW-Development-Users read access to the above share
+
+> Grant webAPI apppool id challengerau\saLifeTestServiceUse full access to the above directory
+
+> grant the above apppoolid execute access to the PFC holdings in DM_CMF and LM_Commmon. 
+
+> grant apppoolid execute access to the relevant storedprocedures in RegressionTests DB
+
+> read access to IDHDevelopers and SG-SYDA-LifeITSupport read access to RegressionTests DB
+
+> Check with Jacob if the service account permissions for saLifeOctoAgent and saLifeDataUsers are still valid??
+
+> Ensure to create a test case using CRUD storedprocedure
+
+> bug in the web transformation not transforming the TestConnectionString properly
+
+> ensure the staging version of challengerau\saLifeTestServiceUse has Execute access on RAW scheam in IDH_CONSOLID database
+
+
+
+
+----------------------testing--------------------------------
+
+1. check the log files under which user the rec has been triggered. 
+
+\\lifewebdev\inetpub\temp\LifePortalWebUI
+
+--you should see a log message something similar to below
+INFO LifePortal.Web.Controllers.PortfolioCalculationsController Edit PortfolioCalculationsController::Import UserEmail=[rapparasu@challenger.com.au]
+
+INFO LifePortal.Web.Controllers.PortfolioCalculationsController Reconciliation PortfolioCalculationsController::Import UserEmail=[rapparasu@challenger.com.au
+
+
+\\lifewebdev\inetpub\temp\LifeDataHub.Service.API
+
+--you should see a log message something similar to below
+INFO  LifeDataHub.Service.ImportJobService RunRecAutoExecution: Rec Triggered for Tag: BusinessRecMEHoldingsLMCAndIDH with Params: @EffectiveDate='2020-03-31',@SnapshotType='Month-End', NTUserEmail:rapparasu@challenger.com.au as user: CHALLENGERAU\saLifeTestServiceUse
+
+--actual user triggering the rec
+Execute Rec for Tag: BusinessRecMEHoldingsLMCAndIDH with user=[CHALLENGERAU\RAPPARASU]
+--impersonate user used by the code for triggering rec
+RunRecManualExecution: Rec Triggered for Tag: BusinessRecMEHoldingsLMCAndIDH with Params: @EffectiveDate='2020-03-31',@SnapshotType='Month-End', NTUserEmail:rapparasu@challenger.com.au as user: CHALLENGERAU\saLifeTestServiceUse
+
+2. check the job logs in the database
+
+--triggered automatically with cherry picking process
+SELECT * FROM Support.ImportJobLog WITH(NOLOCK)
+WHERE ProcessName = 'RunRecAutoExecution'
+ORDER BY LogID DESC
+
+--triggered manually through new LifeDW portal page
+SELECT * FROM Support.ImportJobLog WITH(NOLOCK)
+WHERE ProcessName = 'RunRecManualExecution'
+ORDER BY LogID DESC
+
+3. check log table in regression tests database
+
+
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
+
+
+
+
+
+
+
+
+
